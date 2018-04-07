@@ -1,0 +1,1 @@
+("6.12" ("bdccff49ded819475bf6c6085e05130056a6dfaf" . "c6182391829b8a24945da6d2b23872a2594bf551") #"F:\\Github\\copycat\\utilities.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

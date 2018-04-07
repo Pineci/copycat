@@ -1,0 +1,5 @@
+#lang racket
+
+(define-struct slipnet (nodes links))
+(define-struct sliplink (from to type))
+(define-struct slipnode (name depth))
