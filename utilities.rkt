@@ -11,3 +11,9 @@
     [(= n (- len 1)) 'rightmost]
     [(= n (/ ( - len 1) 2)) 'middle]
     [else #f]))
+
+;choose-random : list -> any/c
+(define (choose-random l)
+  (cond
+    [(= (length l) 0) empty]
+    [else (list-ref l (random (length l)))]))

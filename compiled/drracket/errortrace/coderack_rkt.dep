@@ -1,0 +1,1 @@
+("6.12" ("3583ae273d1cb30fd47eca7275c019685321ebb6" . "1d8126becfa9ee46492a60b382f23f0360064ee4") #"F:\\Github\\copycat\\slipnet.rkt" #"F:\\Github\\copycat\\utilities.rkt" #"F:\\Github\\copycat\\workspace.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

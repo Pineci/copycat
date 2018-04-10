@@ -35,8 +35,11 @@
 ;workspace-structure-to-pointer          : workspace (or letter? group? description? bond? correspondence?) -> pointer
 ;workspace-pointer-to-structure          : workspace pointer -> (or letter? group? description? bond? correspondence?)
 ;workspace-pointer-to-string             : workspace pointer -> string
+;workspace-pointer-search                : workspace pointer -> (list letter group description bond correspondence)
 ;workspace-letters-initialize            : workspace function -> aloletters
 ;workspace-letter-make-descriptions      : workspace letter -> description
+;workspace-object-choose-random          : workspace -> (or letter? group?)
+;workspace-object-descriptions           : workspace (or letter? group?) -> alodescription
 
 ;NOT ADDED:
 ;workspace-objects
@@ -76,7 +79,6 @@
 ;break
 ;position
 ;filter-by-pointer
-;trace-pointer
 
 
 
@@ -243,3 +245,15 @@
   (cond
     [(ormap (lambda(x) (equal? x (pointer-target ptr))) (list workspace-initial workspace-modified workspace-target)) ptr]
     [else (first (map (lambda(x) (workspace-pointer-trace space x)) (structure-pointer (workspace-pointer-to-structure space ptr))))]))
+
+;workspace-object-choose-random : workspace -> (or letter? group?)
+(define (workspace-object-choose-random space)
+  (choose-random (vector->list (vector-clean (vector-append (workspace-letters space) (workspace-groups space))))))
+
+;workspace-object-descriptions : workspace (or letter? group?) -> alodescription
+(define (workspace-object-descriptions space obj)
+  (workspace-pointer-search space (workspace-structure-to-pointer obj)))
+
+;workspace-object-description-choose-random : workspace (or letter? group?) -> description
+(define (workspace-object-description-choose-random space obj)
+  (choose-random (workspace-object-descriptions space obj)))
